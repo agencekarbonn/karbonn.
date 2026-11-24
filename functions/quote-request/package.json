@@ -1,0 +1,15 @@
+{
+  "name": "quote-request",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Demande de devis de la page Services : recalcule l'estimation, rédige un résumé (IA gratuite, repli local), envoie le devis à l'agence et un accusé de réception au client via Mailgun.",
+  "type": "module",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "sync": "node scripts/sync-shared.mjs",
+    "test": "node scripts/sync-shared.mjs && node --test test/*.test.mjs"
+  }
+}
