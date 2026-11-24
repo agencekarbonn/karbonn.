@@ -3,7 +3,7 @@
 export const AUTH_I18N = {
   fr: {
     docTitle: "Connexion — Karbonn", back: "Retour au site", kicker: "Espace client", headline1: "Vos projets,", headline2: "au même", headline3: "endroit.",
-    assure1: "Connexion sécurisée (HTTPS)", assure2: "Code par email sur un nouvel appareil",
+    assure1: "Connexion sécurisée (HTTPS)", assure2: "Un code à usage unique peut vous être envoyé afin de sécuriser votre compte.",
     title: "Connexion", lead: "Accédez à votre espace client Karbonn.", email: "Adresse email", emailPh: "vous@entreprise.fr", password: "Mot de passe", show: "Afficher le mot de passe", hide: "Masquer le mot de passe", submit: "Se connecter", help: "Pas encore d'accès ?", helpLink: "Contactez-nous",
     codeTitle: "Vérifiez votre identité", codeLead: "Nous avons envoyé un code à 6 chiffres à {email}.", codeLabel: "Code de vérification", verify: "Vérifier", resend: "Renvoyer le code", resendIn: "Renvoyer le code dans {time}", resent: "Un nouveau code vous a été envoyé.", changeAccount: "Utiliser un autre compte", codeHint: "Le code expire dans 10 minutes.",
     r_first_login: "Première connexion", r_new_device: "Nouvel appareil", r_unknown_browser: "Navigateur inconnu", r_periodic: "Vérification périodique", r_suspicious: "Activité inhabituelle",
@@ -14,7 +14,7 @@ export const AUTH_I18N = {
   },
   en: {
     docTitle: "Sign in — Karbonn", back: "Back to site", kicker: "Client area", headline1: "All your", headline2: "projects,", headline3: "one place.",
-    assure1: "Secure connection (HTTPS)", assure2: "Email code on new devices",
+    assure1: "Secure connection (HTTPS)", assure2: "A one-time code may be sent to you to secure your account.",
     title: "Sign in", lead: "Access your Karbonn client area.", email: "Email address", emailPh: "you@company.com", password: "Password", show: "Show password", hide: "Hide password", submit: "Sign in", help: "No access yet?", helpLink: "Contact us",
     codeTitle: "Verify it's you", codeLead: "We sent a 6-digit code to {email}.", codeLabel: "Verification code", verify: "Verify", resend: "Resend code", resendIn: "Resend code in {time}", resent: "A new code has been sent.", changeAccount: "Use another account", codeHint: "The code expires in 10 minutes.",
     r_first_login: "First sign-in", r_new_device: "New device", r_unknown_browser: "Unknown browser", r_periodic: "Periodic check", r_suspicious: "Unusual activity",
@@ -25,7 +25,7 @@ export const AUTH_I18N = {
   },
   de: {
     docTitle: "Anmelden — Karbonn", back: "Zurück zur Website", kicker: "Kundenbereich", headline1: "Ihre Projekte,", headline2: "an einem", headline3: "Ort.",
-    assure1: "Sichere Verbindung (HTTPS)", assure2: "E-Mail-Code auf neuen Geräten",
+    assure1: "Sichere Verbindung (HTTPS)", assure2: "Zur Sicherheit Ihres Kontos kann Ihnen ein Einmalcode gesendet werden.",
     title: "Anmelden", lead: "Greifen Sie auf Ihren Karbonn-Kundenbereich zu.", email: "E-Mail-Adresse", emailPh: "sie@unternehmen.de", password: "Passwort", show: "Passwort anzeigen", hide: "Passwort verbergen", submit: "Anmelden", help: "Noch kein Zugang?", helpLink: "Kontaktieren Sie uns",
     codeTitle: "Bestätigen Sie Ihre Identität", codeLead: "Wir haben einen 6-stelligen Code an {email} gesendet.", codeLabel: "Bestätigungscode", verify: "Bestätigen", resend: "Code erneut senden", resendIn: "Code erneut senden in {time}", resent: "Ein neuer Code wurde gesendet.", changeAccount: "Anderes Konto verwenden", codeHint: "Der Code läuft in 10 Minuten ab.",
     r_first_login: "Erste Anmeldung", r_new_device: "Neues Gerät", r_unknown_browser: "Unbekannter Browser", r_periodic: "Regelmäßige Prüfung", r_suspicious: "Ungewöhnliche Aktivität",
@@ -36,7 +36,7 @@ export const AUTH_I18N = {
   },
   es: {
     docTitle: "Iniciar sesión — Karbonn", back: "Volver al sitio", kicker: "Área de cliente", headline1: "Tus proyectos,", headline2: "en un solo", headline3: "lugar.",
-    assure1: "Conexión segura (HTTPS)", assure2: "Código por email en dispositivos nuevos",
+    assure1: "Conexión segura (HTTPS)", assure2: "Es posible que le enviemos un código de un solo uso para proteger su cuenta.",
     title: "Iniciar sesión", lead: "Accede a tu área de cliente Karbonn.", email: "Correo electrónico", emailPh: "tu@empresa.com", password: "Contraseña", show: "Mostrar la contraseña", hide: "Ocultar la contraseña", submit: "Iniciar sesión", help: "¿Aún no tienes acceso?", helpLink: "Contáctanos",
     codeTitle: "Verifica tu identidad", codeLead: "Hemos enviado un código de 6 dígitos a {email}.", codeLabel: "Código de verificación", verify: "Verificar", resend: "Reenviar el código", resendIn: "Reenviar el código en {time}", resent: "Te hemos enviado un nuevo código.", changeAccount: "Usar otra cuenta", codeHint: "El código caduca en 10 minutos.",
     r_first_login: "Primer inicio de sesión", r_new_device: "Nuevo dispositivo", r_unknown_browser: "Navegador desconocido", r_periodic: "Verificación periódica", r_suspicious: "Actividad inusual",
@@ -47,7 +47,7 @@ export const AUTH_I18N = {
   },
   pt: {
     docTitle: "Iniciar sessão — Karbonn", back: "Voltar ao site", kicker: "Área de cliente", headline1: "Os seus projetos,", headline2: "num só", headline3: "lugar.",
-    assure1: "Ligação segura (HTTPS)", assure2: "Código por email em novos dispositivos",
+    assure1: "Ligação segura (HTTPS)", assure2: "Um código de utilização única pode ser-lhe enviado para proteger a sua conta.",
     title: "Iniciar sessão", lead: "Aceda à sua área de cliente Karbonn.", email: "Endereço de email", emailPh: "voce@empresa.pt", password: "Palavra-passe", show: "Mostrar a palavra-passe", hide: "Ocultar a palavra-passe", submit: "Iniciar sessão", help: "Ainda não tem acesso?", helpLink: "Contacte-nos",
     codeTitle: "Confirme a sua identidade", codeLead: "Enviámos um código de 6 dígitos para {email}.", codeLabel: "Código de verificação", verify: "Verificar", resend: "Reenviar o código", resendIn: "Reenviar o código dentro de {time}", resent: "Foi enviado um novo código.", changeAccount: "Usar outra conta", codeHint: "O código expira dentro de 10 minutos.",
     r_first_login: "Primeiro início de sessão", r_new_device: "Novo dispositivo", r_unknown_browser: "Navegador desconhecido", r_periodic: "Verificação periódica", r_suspicious: "Atividade invulgar",
@@ -58,7 +58,7 @@ export const AUTH_I18N = {
   },
   it: {
     docTitle: "Accedi — Karbonn", back: "Torna al sito", kicker: "Area clienti", headline1: "I tuoi progetti,", headline2: "in un unico", headline3: "posto.",
-    assure1: "Connessione sicura (HTTPS)", assure2: "Codice via email sui nuovi dispositivi",
+    assure1: "Connessione sicura (HTTPS)", assure2: "Potrebbe esserti inviato un codice monouso per proteggere il tuo account.",
     title: "Accedi", lead: "Accedi alla tua area clienti Karbonn.", email: "Indirizzo email", emailPh: "tu@azienda.it", password: "Password", show: "Mostra la password", hide: "Nascondi la password", submit: "Accedi", help: "Non hai ancora un accesso?", helpLink: "Contattaci",
     codeTitle: "Verifica la tua identità", codeLead: "Abbiamo inviato un codice di 6 cifre a {email}.", codeLabel: "Codice di verifica", verify: "Verifica", resend: "Invia di nuovo il codice", resendIn: "Invia di nuovo il codice tra {time}", resent: "Ti abbiamo inviato un nuovo codice.", changeAccount: "Usa un altro account", codeHint: "Il codice scade tra 10 minuti.",
     r_first_login: "Primo accesso", r_new_device: "Nuovo dispositivo", r_unknown_browser: "Browser sconosciuto", r_periodic: "Verifica periodica", r_suspicious: "Attività insolita",
@@ -69,7 +69,7 @@ export const AUTH_I18N = {
   },
   zh: {
     docTitle: "登录 — Karbonn", back: "返回网站", kicker: "客户空间", headline1: "您的项目，", headline2: "尽在", headline3: "一处。",
-    assure1: "HTTPS 安全连接", assure2: "新设备需邮件验证码",
+    assure1: "HTTPS 安全连接", assure2: "为保护您的账户安全，我们可能会向您发送一次性验证码。",
     title: "登录", lead: "访问您的 Karbonn 客户空间。", email: "电子邮箱", emailPh: "you@company.com", password: "密码", show: "显示密码", hide: "隐藏密码", submit: "登录", help: "还没有账户？", helpLink: "联系我们",
     codeTitle: "验证您的身份", codeLead: "我们已将 6 位验证码发送至 {email}。", codeLabel: "验证码", verify: "验证", resend: "重新发送验证码", resendIn: "{time} 后可重新发送", resent: "新的验证码已发送。", changeAccount: "使用其他账户", codeHint: "验证码 10 分钟内有效。",
     r_first_login: "首次登录", r_new_device: "新设备", r_unknown_browser: "未知浏览器", r_periodic: "定期验证", r_suspicious: "异常活动",

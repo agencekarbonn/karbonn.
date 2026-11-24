@@ -73,19 +73,23 @@ const QUOTE_I18N = {
   },
 };
 
-for (const [code, strings] of Object.entries(QUOTE_I18N)) Object.assign(I18N[code], strings);
+/* Sur les pages sans I18N global (ex. connexion), la modale utilise son propre dictionnaire. */
+const DICTS = typeof I18N !== "undefined" ? I18N : QUOTE_I18N;
+if (DICTS !== QUOTE_I18N) for (const [code, strings] of Object.entries(QUOTE_I18N)) Object.assign(DICTS[code], strings);
 
 const tr = (key, vars = {}) =>
-  (I18N[currentLang][key] ?? I18N.fr[key] ?? key).replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? "");
+  (DICTS[document.documentElement.lang]?.[key] ?? DICTS.fr[key] ?? key).replace(/\{(\w+)\}/g, (_, name) => vars[name] ?? "");
 
 const finePointer = window.matchMedia("(pointer: fine)");
 
 /* ---------- Popover « Discutons » ---------- */
 
 const talk = document.querySelector(".talk");
+let talkAnchor = null;
+
+if (talk) {
 const talkItems = [...talk.querySelectorAll(".talk__item")];
 const talkTriggers = document.querySelectorAll(".nav__cta, .nav__sheet-cta");
-let talkAnchor = null;
 
 function placeTalk() {
   const rect = talkAnchor.getBoundingClientRect();
@@ -142,6 +146,7 @@ document.addEventListener("keydown", (event) => {
 });
 window.addEventListener("scroll", () => closeTalk(), { passive: true });
 window.addEventListener("resize", () => closeTalk());
+}
 
 /* ---------- Modale de devis ---------- */
 
@@ -583,4 +588,4 @@ document.addEventListener("langchange", () => {
   if (combo.classList.contains("is-open")) renderCompanies();
 });
 
-applyLang(currentLang);
+if (typeof applyLang === "function" && typeof currentLang !== "undefined") applyLang(currentLang);

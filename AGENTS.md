@@ -24,6 +24,7 @@ Site statique (HTML/CSS/JS sans framework) + fonction Appwrite pour la connexion
 ## Connexion (Appwrite + Mailgun)
 
 - Page : `connexion.html` / `connexion.css` / `connexion.js` (+ `connexion-i18n.js`, `appwrite-config.js` public).
+- Le lien « Contactez-nous » ouvre la modale de devis (`quote.js`, chargé en defer AVANT `connexion.js` : le module lit le `QUOTE_I18N` global du script classique et le fusionne dans `AUTH_I18N`). `quote.js` fonctionne sans les globales de `script.js` : dictionnaire de repli, popover `.talk` facultatif, langue lue via `document.documentElement.lang`. `connexion.js` expose `window.reducedMotion` et dispatche `langchange`.
 - Fonction serveur : `functions/login-guard` (seule à vérifier le mot de passe, décider du code OTP, envoyer l'email Mailgun et émettre le jeton de session).
 - Tables : `npm run setup` dans `functions/login-guard` (variables APPWRITE_ENDPOINT, APPWRITE_PROJECT_ID, APPWRITE_API_KEY).
 - Ne jamais mettre de clé Mailgun ou de clé API Appwrite côté navigateur.

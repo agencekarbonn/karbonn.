@@ -7,6 +7,10 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const EASE_OUT = "cubic-bezier(.22, 1, .36, 1)";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointer = window.matchMedia("(pointer: fine)");
+window.reducedMotion = reducedMotion;
+
+/* Textes de la modale de devis (quote.js), partagés avec le mécanisme data-i18n ci-dessous. */
+for (const [code, strings] of Object.entries(QUOTE_I18N)) Object.assign(AUTH_I18N[code], strings);
 
 /* ---------- Langue (même logique que le site) ---------- */
 
@@ -45,6 +49,7 @@ function applyLang(code) {
 
   renderDynamicText();
   fitBrand();
+  document.dispatchEvent(new CustomEvent("langchange", { detail: code }));
 }
 
 const setLangMenu = (open) => {
@@ -290,6 +295,8 @@ revealButton.addEventListener("click", () => {
     if (field.classList.contains("has-error")) setError(field, "");
   }),
 );
+
+credentialsForm.querySelector(".auth__contact").addEventListener("click", () => openQuote());
 
 credentialsForm.addEventListener("submit", async (event) => {
   event.preventDefault();
