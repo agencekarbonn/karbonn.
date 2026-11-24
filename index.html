@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f6f2" />
+    <title>Karbonn.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700;9..40,800&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      (function () {
+        var html = document.documentElement, done = false, release;
+        var transition = false;
+        try { transition = !!sessionStorage.getItem("karbonn:transition"); } catch (e) {}
+        try { transition = transition || performance.getEntriesByType("navigation")[0].type === "back_forward"; } catch (e) {}
+        html.classList.add("has-loader", transition ? "is-transition-in" : "is-loading-in");
+        var loader = window.karbonnLoader = { ready: new Promise(function (resolve) { release = resolve; }) };
+        loader.resolve = function () { if (!done) { done = true; release(); } };
+        loader.failsafe = setTimeout(function () { html.classList.add("is-loader-done"); loader.resolve(); }, 10000);
+      })();
+    </script>
+    <script src="./loader.js" type="module"></script>
+    <script src="./script.js" defer></script>
+    <script src="./quote.js" defer></script>
+    <script src="./footer.js" defer></script>
+  </head>
+  <body data-page="home">
+    <div class="loader" aria-hidden="true">
+      <canvas class="loader__canvas"></canvas>
+      <div class="loader__ui">
+        <span class="loader__brand"><span>Karbonn.</span></span>
+        <span class="loader__count"><span><span class="loader__num">0</span><span class="loader__pct">%</span></span></span>
+      </div>
+      <span class="loader__bar"></span>
+    </div>
+    <div class="loader-ring" aria-hidden="true"></div>
+    <div class="lang">
+      <button class="lang__button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choisir la langue">
+        <svg class="lang__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+          <path d="M3.5 9.5h17M3.5 14.5h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+        <span class="lang__current">EN</span>
+        <svg class="lang__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <ul class="lang__menu" role="listbox" aria-label="Langues">
+        <li role="option" data-lang="en">English</li>
+        <li role="option" data-lang="fr">Français</li>
+        <li role="option" data-lang="de">Deutsch</li>
+        <li role="option" data-lang="es">Español</li>
+        <li role="option" data-lang="pt">Português</li>
+        <li role="option" data-lang="it">Italiano</li>
+        <li role="option" data-lang="zh">中文 (简体)</li>
+      </ul>
+    </div>
+
+    <a class="login" href="connexion.html" data-i18n="login">Se connecter</a>
+
+    <main id="accueil" class="page" aria-label="Accueil">
+      <div class="site-hero">
+        <span class="site-logo" role="img" aria-label="Karbonn"></span>
+        <h1 class="site-title"><span data-i18n="hero1" style="--i: 0">WE</span><br /><span data-i18n="hero2" style="--i: 1">MAKE</span><br /><span data-i18n="hero3" style="--i: 2">IMPACT.</span></h1>
+      </div>
+
+      <section class="brands" aria-label="Références">
+        <p class="brands__title" data-i18n="brands">Nos collaborateurs ont travaillé pour</p>
+        <div class="brands__logos">
+          <img src="assets/logo/brands/Logo_Porsche.svg.webp" alt="Porsche" style="--i: 0" />
+          <img src="assets/logo/brands/Lacoste_logo.svg.webp" alt="Lacoste" style="--i: 1" />
+          <img src="assets/logo/brands/Paco_Rabanne_logo.svg.webp" alt="Paco Rabanne" style="--i: 2" />
+          <img src="assets/logo/brands/logo-diptyque.png" alt="Diptyque" style="--i: 3" />
+          <img src="assets/logo/brands/Logo_enedis_header.png" alt="Enedis" style="--i: 4" />
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__brand" aria-label="Karbonn">
+        <span class="footer__brand-inner"><span class="footer__brand-text">Karbonn</span><span class="footer__cursor" aria-hidden="true">_</span></span>
+      </p>
+
+      <div class="footer__columns">
+        <section class="footer__col" aria-labelledby="footer-agency" style="--i: 0">
+          <h2 class="footer__title" id="footer-agency" data-i18n="fAgency">L'agence</h2>
+          <ul class="footer__list">
+            <li>
+              <span class="footer__label" data-i18n="fHours">Horaires</span>
+              <span class="footer__status" aria-live="polite"><span class="footer__status-text">Agence ouverte</span></span>
+              <span class="footer__note" data-i18n="fSchedule">Du lundi au vendredi, 9h – 18h</span>
+            </li>
+            <li>
+              <span class="footer__label" data-i18n="fPhone">Téléphone</span>
+              <button class="footer__phone" type="button" aria-live="polite">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5.5 3.5h3l1.6 4.2-2 1.3a11 11 0 0 0 6.9 6.9l1.3-2 4.2 1.6v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 3.5 5.7a2 2 0 0 1 2-2.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /></svg>
+                <span class="footer__phone-text" data-i18n="fPhoneReveal">Afficher le numéro</span>
+              </button>
+              <span class="footer__note" data-i18n="fPhoneNote">Prix d'un appel local</span>
+            </li>
+            <li>
+              <span class="footer__label" data-i18n="fEmail">Email</span>
+              <a class="footer__link" href="mailto:hello@karbonn.fr">hello@karbonn.fr</a>
+            </li>
+          </ul>
+        </section>
+
+        <nav class="footer__col" aria-labelledby="footer-legal" style="--i: 1">
+          <h2 class="footer__title" id="footer-legal" data-i18n="fLegal">Légal</h2>
+          <ul class="footer__list">
+            <li><a class="footer__link" href="mentions-legales.html" data-i18n="fLegalNotice">Mentions légales</a></li>
+            <li><a class="footer__link" href="politique-de-confidentialite.html" data-i18n="fPrivacy">Politique de confidentialité</a></li>
+            <li><a class="footer__link" href="politique-de-cookies.html" data-i18n="fCookies">Politique de cookies</a></li>
+            <li><a class="footer__link" href="cgu.html" data-i18n="fTerms">Conditions générales d'utilisation (CGU)</a></li>
+            <li><a class="footer__link" href="cgv.html" data-i18n="fSales">Conditions générales de vente (CGV)</a></li>
+          </ul>
+        </nav>
+
+        <section class="footer__col" aria-labelledby="footer-social" style="--i: 2">
+          <h2 class="footer__title" id="footer-social" data-i18n="fFollow">Suivez-nous</h2>
+          <ul class="footer__social">
+            <li>
+              <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z" /></svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer__social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3.3 9h3.4v11.5H3.3V9zm5.6 0h3.3v1.6h.05c.46-.87 1.58-1.8 3.26-1.8 3.48 0 4.12 2.3 4.12 5.27v6.43h-3.4v-5.7c0-1.36-.03-3.1-1.9-3.1-1.9 0-2.18 1.48-2.18 3v5.8H8.9V9z" /></svg>
+              </a>
+            </li>
+          </ul>
+
+          <form class="newsletter" novalidate>
+            <label class="footer__label newsletter__label" for="newsletter-email" data-i18n="fNewsletter">Newsletter</label>
+            <p class="footer__note newsletter__text" data-i18n="fNewsletterText">Nos projets et actualités, une fois par mois.</p>
+            <div class="newsletter__field">
+              <input class="newsletter__input" type="email" id="newsletter-email" name="email" data-i18n-placeholder="fNewsletterPh" placeholder="votre@email.fr" autocomplete="email" inputmode="email" required />
+              <button class="newsletter__button" type="submit" data-i18n-aria="fSubscribe" aria-label="S'inscrire à la newsletter">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </button>
+            </div>
+            <p class="newsletter__message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+      </div>
+
+      <p class="footer__copyright">© <span class="footer__years">2025</span> Karbonn. <span data-i18n="fRights">Tous droits réservés.</span></p>
+    </footer>
+
+    <header class="nav" data-mode="hero">
+      <div class="nav__shell">
+        <nav class="nav__bar" aria-label="Navigation principale">
+          <a class="nav__brand nav__item" href="#accueil" style="--i: 0">KARBONN.</a>
+
+          <div class="nav__main" id="nav-main">
+            <div class="nav__links nav__item" style="--i: 1">
+              <span class="nav__indicator" aria-hidden="true"></span>
+              <button class="nav__link is-active" type="button" data-link="home" data-href="index.html" aria-pressed="true" data-i18n="home">Accueil</button>
+              <button class="nav__link" type="button" data-link="services" data-href="services.html" aria-pressed="false" data-i18n="services">Services</button>
+              <button class="nav__link" type="button" data-link="case-studies" aria-pressed="false" data-i18n="cases">Case Studies</button>
+              <button class="nav__link" type="button" data-link="about" aria-pressed="false" data-i18n="about">About</button>
+            </div>
+
+            <div class="nav__cta-wrap nav__item" style="--i: 2">
+              <button class="nav__cta" type="button" aria-haspopup="menu" aria-controls="talk-menu" aria-expanded="false">
+                <span data-i18n="cta">Let's Talk</span>
+                <span class="nav__cta-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M6 18 18 6M8.5 6H18v9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                  <svg viewBox="0 0 24 24" fill="none"><path d="M6 18 18 6M8.5 6H18v9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-main" aria-label="Menu">
+            <span class="nav__toggle-text" aria-hidden="true">
+              <span data-i18n="menu">Menu</span>
+              <span data-i18n="close">Close</span>
+            </span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="nav__sheet" id="nav-sheet">
+        <button class="nav__sheet-link is-active" type="button" data-link="home" data-href="index.html" aria-pressed="true" style="--i: 0" data-i18n="home">Accueil</button>
+        <button class="nav__sheet-link" type="button" data-link="services" data-href="services.html" aria-pressed="false" style="--i: 1" data-i18n="services">Services</button>
+        <button class="nav__sheet-link" type="button" data-link="case-studies" aria-pressed="false" style="--i: 2" data-i18n="cases">Case Studies</button>
+        <button class="nav__sheet-link" type="button" data-link="about" aria-pressed="false" style="--i: 3" data-i18n="about">About</button>
+        <button class="nav__sheet-cta" type="button" style="--i: 4" aria-haspopup="menu" aria-controls="talk-menu" aria-expanded="false">
+          <span data-i18n="cta">Let's Talk</span>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M8.5 6H18v9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="talk" id="talk-menu" role="menu" data-i18n-aria="ariaTalk" aria-label="Discutons" inert>
+      <button class="talk__item" type="button" role="menuitem" data-action="call" style="--i: 0">
+        <span class="talk__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5.5 3.5h3l1.6 4.2-2 1.3a11 11 0 0 0 6.9 6.9l1.3-2 4.2 1.6v3a2 2 0 0 1-2.2 2A17.5 17.5 0 0 1 3.5 5.7a2 2 0 0 1 2-2.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /></svg>
+        </span>
+        <span class="talk__text">
+          <span class="talk__label" data-i18n="talkCall">Rendez-vous téléphonique</span>
+          <span class="talk__hint" data-i18n="talkCallHint">30 min pour faire connaissance</span>
+        </span>
+        <svg class="talk__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M8.5 6H18v9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+      <button class="talk__item" type="button" role="menuitem" data-action="quote" style="--i: 1">
+        <span class="talk__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5l-5-5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /><path d="M14 3.5v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+        </span>
+        <span class="talk__text">
+          <span class="talk__label" data-i18n="talkQuote">Demander un devis</span>
+          <span class="talk__hint" data-i18n="talkQuoteHint">Réponse sous 48 h</span>
+        </span>
+        <svg class="talk__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 18 18 6M8.5 6H18v9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </button>
+    </div>
+
+    <dialog class="quote" aria-labelledby="q-title-type">
+      <form class="quote__form" novalidate>
+        <header class="quote__header">
+          <div class="quote__meta">
+            <span class="quote__step-label" aria-live="polite">Étape 1 sur 3</span>
+            <button class="quote__close" type="button" data-i18n-aria="qClose" aria-label="Fermer">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+            </button>
+          </div>
+          <div class="quote__progress" aria-hidden="true"><span></span></div>
+        </header>
+
+        <div class="quote__viewport">
+          <!-- Étape : type de client -->
+          <section class="quote__panel is-active" data-step="type">
+            <h2 class="quote__title" id="q-title-type" data-i18n="qTypeTitle">Vous êtes…</h2>
+            <p class="quote__lead" data-i18n="qTypeLead">Quelques questions pour préparer une proposition sur mesure.</p>
+            <fieldset class="field quote__choices" data-required>
+              <legend class="sr-only" data-i18n="qTypeTitle">Vous êtes…</legend>
+              <label class="quote__choice">
+                <input type="radio" name="clientType" value="individual" />
+                <span class="quote__choice-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8.5" r="4" stroke="currentColor" stroke-width="1.6" /><path d="M4.5 20a7.5 7.5 0 0 1 15 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+                </span>
+                <span class="quote__choice-title" data-i18n="qIndividual">Particulier</span>
+                <span class="quote__choice-desc" data-i18n="qIndividualDesc">Pour un projet personnel</span>
+                <span class="quote__choice-check" aria-hidden="true"></span>
+              </label>
+              <label class="quote__choice">
+                <input type="radio" name="clientType" value="pro" />
+                <span class="quote__choice-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="7" width="17" height="12.5" rx="2" stroke="currentColor" stroke-width="1.6" /><path d="M9 7V5.5a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 5.5V7M3.5 12.5h17" stroke="currentColor" stroke-width="1.6" /></svg>
+                </span>
+                <span class="quote__choice-title" data-i18n="qPro">Professionnel</span>
+                <span class="quote__choice-desc" data-i18n="qProDesc">Pour votre entreprise</span>
+                <span class="quote__choice-check" aria-hidden="true"></span>
+              </label>
+              <span class="field__error" aria-live="polite"></span>
+            </fieldset>
+          </section>
+
+          <!-- Étape : coordonnées -->
+          <section class="quote__panel" data-step="contact" hidden>
+            <h2 class="quote__title" id="q-title-contact" data-i18n="qContactTitle">Vos coordonnées</h2>
+            <p class="quote__lead" data-i18n="qContactLead">Pour que nous puissions revenir vers vous.</p>
+            <div class="quote__grid">
+              <div class="field">
+                <label class="field__label" for="q-lastname" data-i18n="qLastName">Nom</label>
+                <input class="field__input" id="q-lastname" name="lastName" autocomplete="family-name" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="q-firstname" data-i18n="qFirstName">Prénom</label>
+                <input class="field__input" id="q-firstname" name="firstName" autocomplete="given-name" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="q-email">
+                  <span class="only-individual" data-i18n="qEmail">Adresse email</span>
+                  <span class="only-pro" data-i18n="qEmailPro">Adresse email professionnelle</span>
+                </label>
+                <input class="field__input" id="q-email" name="email" type="email" autocomplete="email" inputmode="email" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="q-phone">
+                  <span class="only-individual"><span data-i18n="qPhone">Téléphone</span> <span class="field__optional" data-i18n="qOptional">(facultatif)</span></span>
+                  <span class="only-pro" data-i18n="qPhonePro">Téléphone professionnel</span>
+                </label>
+                <input class="field__input" id="q-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Étape : entreprise (professionnel) -->
+          <section class="quote__panel" data-step="company" hidden>
+            <h2 class="quote__title" id="q-title-company" data-i18n="qCompanyTitle">Votre entreprise</h2>
+            <p class="quote__lead" data-i18n="qCompanyLead">Recherchez votre raison sociale : nous complétons le reste.</p>
+            <div class="quote__grid">
+              <div class="field field--full">
+                <label class="field__label" for="q-company" data-i18n="qCompany">Raison sociale</label>
+                <div class="combo">
+                  <svg class="combo__search" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.6" /><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+                  <input class="field__input combo__input" id="q-company" name="company" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="q-company-list" autocomplete="off" data-i18n-placeholder="qCompanyPh" placeholder="Rechercher votre entreprise…" required />
+                  <span class="combo__spinner" aria-hidden="true"></span>
+                  <ul class="combo__list" id="q-company-list" role="listbox" data-i18n-aria="qCompany" aria-label="Raison sociale"></ul>
+                </div>
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="q-siret" data-i18n="qSiret">Numéro SIRET</label>
+                <input class="field__input" id="q-siret" name="siret" inputmode="numeric" autocomplete="off" placeholder="123 456 789 00012" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label class="field__label" for="q-vat" data-i18n="qVat">Numéro de TVA</label>
+                <input class="field__input" id="q-vat" name="vat" autocomplete="off" placeholder="FR12345678901" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="q-address" data-i18n="qAddress">Adresse du siège social</label>
+                <input class="field__input" id="q-address" name="address" autocomplete="street-address" required />
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Étape : projet -->
+          <section class="quote__panel" data-step="project" hidden>
+            <h2 class="quote__title" id="q-title-project" data-i18n="qProjectTitle">Votre projet</h2>
+            <p class="quote__lead" data-i18n="qProjectLead">Dernière étape : parlez-nous de votre idée.</p>
+            <fieldset class="field" data-required>
+              <legend class="field__label" data-i18n="qProjectType">Type de projet</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="projectType" value="website" /><span data-i18n="qTypeWebsite">Site vitrine</span></label>
+                <label class="chip"><input type="radio" name="projectType" value="ecommerce" /><span data-i18n="qTypeShop">E-commerce</span></label>
+                <label class="chip"><input type="radio" name="projectType" value="branding" /><span data-i18n="qTypeBranding">Identité visuelle</span></label>
+                <label class="chip"><input type="radio" name="projectType" value="app" /><span data-i18n="qTypeApp">Application</span></label>
+                <label class="chip"><input type="radio" name="projectType" value="other" /><span data-i18n="qTypeOther">Autre</span></label>
+              </div>
+              <span class="field__error" aria-live="polite"></span>
+            </fieldset>
+            <fieldset class="field" data-required>
+              <legend class="field__label" data-i18n="qBudget">Budget</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="budget" value="lt500" /><span data-i18n="qBudget1">- de 500 €</span></label>
+                <label class="chip"><input type="radio" name="budget" value="500-2000" /><span>500 – 2 000 €</span></label>
+                <label class="chip"><input type="radio" name="budget" value="2000-5000" /><span>2 000 – 5 000 €</span></label>
+                <label class="chip"><input type="radio" name="budget" value="5000-10000" /><span>5 000 – 10 000 €</span></label>
+                <label class="chip"><input type="radio" name="budget" value="10000-20000" /><span>10 000 – 20 000 €</span></label>
+                <label class="chip"><input type="radio" name="budget" value="gt20000" /><span data-i18n="qBudget6">+ de 20 000 €</span></label>
+              </div>
+              <span class="field__error" aria-live="polite"></span>
+            </fieldset>
+            <div class="field">
+              <label class="field__label" for="q-message" data-i18n="qMessage">Message</label>
+              <textarea class="field__input field__textarea" id="q-message" name="message" rows="4" data-i18n-placeholder="qMessagePh" placeholder="Objectifs, délais, inspirations…" required></textarea>
+              <span class="field__error" aria-live="polite"></span>
+            </div>
+          </section>
+
+          <!-- Confirmation -->
+          <section class="quote__panel quote__done" data-step="done" hidden>
+            <span class="quote__done-icon" aria-hidden="true">
+              <svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="currentColor" stroke-width="2.5" /><path d="m16 27 7 7 13-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            </span>
+            <h2 class="quote__title" id="q-title-done">Merci !</h2>
+            <p class="quote__lead" data-i18n="qDoneText">Votre demande a bien été envoyée. Nous revenons vers vous sous 48 h.</p>
+          </section>
+        </div>
+
+        <footer class="quote__footer">
+          <button class="quote__back" type="button">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <span data-i18n="qBack">Retour</span>
+          </button>
+          <button class="quote__next" type="submit">
+            <span class="quote__next-label">Continuer</span>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <span class="quote__next-spinner" aria-hidden="true"></span>
+          </button>
+        </footer>
+      </form>
+    </dialog>
+  </body>
+</html>

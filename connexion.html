@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0C04FF" />
+    <meta name="robots" content="noindex" />
+    <title>Connexion — Karbonn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500;9..40,600;9..40,700;9..40,800&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./connexion.css" />
+    <script>
+      (function () {
+        var html = document.documentElement, done = false, release;
+        var transition = false;
+        try { transition = !!sessionStorage.getItem("karbonn:transition"); } catch (e) {}
+        try { transition = transition || performance.getEntriesByType("navigation")[0].type === "back_forward"; } catch (e) {}
+        html.classList.add("has-loader", transition ? "is-transition-in" : "is-loading-in");
+        var loader = window.karbonnLoader = { ready: new Promise(function (resolve) { release = resolve; }) };
+        loader.resolve = function () { if (!done) { done = true; release(); } };
+        loader.failsafe = setTimeout(function () { html.classList.add("is-loader-done"); loader.resolve(); }, 10000);
+      })();
+    </script>
+    <script src="./loader.js" type="module"></script>
+    <script src="./connexion.js" type="module"></script>
+  </head>
+  <body class="auth-page">
+    <div class="loader" aria-hidden="true">
+      <canvas class="loader__canvas"></canvas>
+      <div class="loader__ui">
+        <span class="loader__brand"><span>Karbonn.</span></span>
+        <span class="loader__count"><span><span class="loader__num">0</span><span class="loader__pct">%</span></span></span>
+      </div>
+      <span class="loader__bar"></span>
+    </div>
+    <div class="loader-ring" aria-hidden="true"></div>
+    <div class="auth">
+      <aside class="auth__aside">
+        <a class="auth__logo" href="index.html" aria-label="Karbonn"><span class="auth__logo-mark" aria-hidden="true"></span></a>
+
+        <div class="auth__pitch">
+          <p class="auth__kicker" data-i18n="kicker">Espace client</p>
+          <h1 class="auth__headline">
+            <span style="--i: 0"><span data-i18n="headline1">Vos projets,</span></span>
+            <span style="--i: 1"><span data-i18n="headline2">au même</span></span>
+            <span style="--i: 2"><span data-i18n="headline3">endroit.</span></span>
+          </h1>
+          <ul class="auth__assurances">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2.5" stroke="currentColor" stroke-width="1.6" /><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" stroke="currentColor" stroke-width="1.6" /></svg>
+              <span data-i18n="assure1">Connexion sécurisée (HTTPS)</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" stroke="currentColor" stroke-width="1.6" /><path d="m4.5 7 7.5 6 7.5-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /></svg>
+              <span data-i18n="assure2">Code par email sur un nouvel appareil</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="auth__brand" aria-hidden="true"><span class="auth__brand-inner">Karbonn<span class="auth__cursor">_</span></span></p>
+      </aside>
+
+      <main class="auth__main">
+        <header class="auth__top">
+          <a class="auth__back" href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <span data-i18n="back">Retour au site</span>
+          </a>
+
+          <div class="lang">
+            <button class="lang__button" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Choisir la langue">
+              <svg class="lang__globe" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+                <path d="M3.5 9.5h17M3.5 14.5h17M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              <span class="lang__current">FR</span>
+              <svg class="lang__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <ul class="lang__menu" role="listbox" aria-label="Langues">
+              <li role="option" data-lang="en">English</li>
+              <li role="option" data-lang="fr">Français</li>
+              <li role="option" data-lang="de">Deutsch</li>
+              <li role="option" data-lang="es">Español</li>
+              <li role="option" data-lang="pt">Português</li>
+              <li role="option" data-lang="it">Italiano</li>
+              <li role="option" data-lang="zh">中文 (简体)</li>
+            </ul>
+          </div>
+        </header>
+
+        <div class="auth__stage">
+          <div class="auth__card">
+            <!-- Étape 1 : identifiants -->
+            <form class="auth__step is-active" data-step="credentials" novalidate aria-labelledby="auth-title">
+              <h2 class="auth__title" id="auth-title" data-i18n="title">Connexion</h2>
+              <p class="auth__lead" data-i18n="lead">Accédez à votre espace client Karbonn.</p>
+
+              <p class="auth__alert" role="alert" hidden></p>
+
+              <div class="auth__fields">
+                <div class="field">
+                  <label class="field__label" for="auth-email" data-i18n="email">Adresse email</label>
+                  <input class="field__input" id="auth-email" name="email" type="email" autocomplete="username" inputmode="email" autocapitalize="off" spellcheck="false" data-i18n-placeholder="emailPh" placeholder="vous@entreprise.fr" required />
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="auth-password" data-i18n="password">Mot de passe</label>
+                  <div class="auth__password">
+                    <input class="field__input" id="auth-password" name="password" type="password" autocomplete="current-password" minlength="8" required />
+                    <button class="auth__reveal" type="button" aria-pressed="false" aria-controls="auth-password" data-i18n-aria="show" aria-label="Afficher le mot de passe">
+                      <svg class="auth__eye" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" /><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6" /><path class="auth__eye-slash" d="m4 4 16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" /></svg>
+                    </button>
+                  </div>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <button class="auth__submit" type="submit">
+                <span class="auth__submit-label" data-i18n="submit">Se connecter</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span class="auth__spinner" aria-hidden="true"></span>
+              </button>
+
+              <p class="auth__help"><span data-i18n="help">Pas encore d'accès ?</span> <a class="auth__link" href="mailto:hello@karbonn.fr" data-i18n="helpLink">Contactez-nous</a></p>
+            </form>
+
+            <!-- Étape 2 : code reçu par email -->
+            <form class="auth__step" data-step="code" novalidate aria-labelledby="auth-code-title" hidden>
+              <span class="auth__badge"></span>
+              <h2 class="auth__title" id="auth-code-title" data-i18n="codeTitle">Vérifiez votre identité</h2>
+              <p class="auth__lead auth__code-lead"></p>
+
+              <p class="auth__alert" role="alert" hidden></p>
+
+              <div class="field otp-field">
+                <label class="sr-only" for="auth-code" data-i18n="codeLabel">Code de vérification</label>
+                <div class="otp">
+                  <input class="otp__input" id="auth-code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" maxlength="6" required />
+                  <div class="otp__boxes" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+              <p class="auth__hint" data-i18n="codeHint">Le code expire dans 10 minutes.</p>
+
+              <button class="auth__submit" type="submit">
+                <span class="auth__submit-label" data-i18n="verify">Vérifier</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                <span class="auth__spinner" aria-hidden="true"></span>
+              </button>
+
+              <div class="auth__code-actions">
+                <button class="auth__link auth__resend" type="button" disabled></button>
+                <button class="auth__link auth__switch" type="button" data-i18n="changeAccount">Utiliser un autre compte</button>
+              </div>
+            </form>
+
+            <!-- Étape 3 : connecté -->
+            <section class="auth__step auth__done" data-step="done" aria-labelledby="auth-done-title" hidden>
+              <span class="auth__done-icon" aria-hidden="true">
+                <svg viewBox="0 0 52 52" fill="none"><circle cx="26" cy="26" r="24" stroke="currentColor" stroke-width="2.5" /><path d="m16 27 7 7 13-15" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              </span>
+              <h2 class="auth__title" id="auth-done-title"></h2>
+              <p class="auth__lead" data-i18n="doneLead">Vous êtes connecté à votre espace Karbonn.</p>
+              <p class="auth__note" data-i18n="doneTrusted" hidden>Cet appareil est reconnu pendant 90 jours : plus besoin de code ici.</p>
+              <div class="auth__done-actions">
+                <a class="auth__submit" href="index.html">
+                  <span class="auth__submit-label" data-i18n="home">Retour au site</span>
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </a>
+                <button class="auth__secondary auth__logout" type="button" data-i18n="logout">Se déconnecter</button>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <footer class="auth__footer">
+          <span>© <span class="auth__years">2025</span> Karbonn. <span data-i18n="rights">Tous droits réservés.</span></span>
+          <nav class="auth__footer-links" aria-label="Légal">
+            <a href="mentions-legales.html" data-i18n="legal">Mentions légales</a>
+            <a href="politique-de-confidentialite.html" data-i18n="privacy">Confidentialité</a>
+          </nav>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
