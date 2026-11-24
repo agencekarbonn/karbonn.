@@ -1,0 +1,14 @@
+{
+  "name": "brief-parser",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Assistant Services Karbonn : transforme une phrase libre en brief structuré (API Gemini, offre gratuite). Aucun prix n'est calculé ici.",
+  "type": "module",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
+}
