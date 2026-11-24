@@ -1,0 +1,18 @@
+{
+  "name": "login-guard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Connexion Karbonn : vérification du mot de passe, code à usage unique par email (Mailgun) selon le risque, ouverture de session Appwrite.",
+  "type": "module",
+  "main": "src/main.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "node-appwrite": "31.1.0"
+  }
+}
