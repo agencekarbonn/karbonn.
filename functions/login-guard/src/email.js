@@ -92,7 +92,7 @@ const LOCALES = { fr: "fr-FR", en: "en-GB", de: "de-DE", es: "es-ES", pt: "pt-PT
 
 const detailRow = (label, value) => `<tr>
   <td width="46%" style="padding:12px 3px 12px 0;border-top:1px solid #deded9;color:#777772;font:10px Menlo,Consolas,monospace;letter-spacing:1px;word-break:break-word;">${escapeHtml(label)}</td>
-  <td width="54%" align="right" style="padding:12px 0 12px 3px;border-top:1px solid #deded9;color:#111;font:600 12px Helvetica,Arial,sans-serif;word-break:break-word;">${escapeHtml(value)}</td>
+  <td width="54%" align="right" style="padding:12px 0 12px 3px;border-top:1px solid #deded9;color:#111;font:600 13px Helvetica,Arial,sans-serif;word-break:break-word;">${escapeHtml(value)}</td>
 </tr>`;
 
 export function renderCodeEmail({ code, reason, lang, deviceLabel, name = "", location = "", country = "FR", sentAt = new Date() }) {
@@ -136,14 +136,14 @@ export function renderCodeEmail({ code, reason, lang, deviceLabel, name = "", lo
   <body style="margin:0;padding:0;background:#eae9e4;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eae9e4;padding:28px 12px;font-family:Helvetica,Arial,sans-serif;color:#111;">
       <tr><td align="center">
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:440px;width:100%;table-layout:fixed;background:#0C04FF;border-radius:25px;overflow:hidden;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;width:100%;table-layout:fixed;background:#0C04FF;border-radius:25px;overflow:hidden;">
           <tr><td style="background:#0C04FF;padding:26px 34px 34px;border-radius:25px 25px 0 0;">
             <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
               <td><img src="cid:${LOGO_NAME}" alt="Karbonn" width="32" height="40" style="display:block;border:0;width:32px;height:40px;"></td>
               <td align="right" valign="top"><span style="display:inline-block;border:1px solid #a3a0ff;border-radius:30px;padding:6px 12px;color:#f7f6f2;font:10px Menlo,Consolas,monospace;letter-spacing:1px;">${escapeHtml(t.badge)}</span></td>
             </tr></table>
             <p style="margin:33px 0 9px;color:#c9c7ff;font:10px Menlo,Consolas,monospace;letter-spacing:1px;">${escapeHtml(t.eyebrow)}</p>
-            <h1 style="margin:0;color:#fff;font:800 36px/1.03 Helvetica,Arial,sans-serif;letter-spacing:-1.5px;">${t.title}</h1>
+            <h1 style="margin:0;color:#fff;font:800 36px/1.03 Helvetica,Arial,sans-serif;letter-spacing:-1.5px;text-transform:uppercase;">${t.title}</h1>
           </td></tr>
           <tr><td style="background:#f7f6f2;border-radius:25px;padding:32px 34px 28px;">
             <h2 style="margin:0 0 10px;font:700 17px Helvetica,Arial,sans-serif;">${escapeHtml(greeting)}</h2>
