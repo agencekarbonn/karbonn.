@@ -658,7 +658,8 @@ button {
 
 .nav__cta,
 .nav__sheet-cta {
-  --cta-accent: #CDF2FF;
+  --cta-accent: var(--accent);
+  --cta-ink: #CDF2FF;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -667,7 +668,7 @@ button {
   border: 0;
   border-radius: 999px;
   background: var(--cta-accent);
-  color: var(--ink);
+  color: var(--cta-ink);
   font-family: var(--font-title);
   font-size: 20px;
   font-weight: 700;
@@ -918,7 +919,7 @@ button {
   .nav__cta:not(.has-wave):hover,
   .nav__sheet-cta:not(.has-wave):hover {
     background: var(--cta-accent);
-    color: var(--ink);
+    color: var(--cta-ink);
   }
 }
 
