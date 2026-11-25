@@ -651,63 +651,67 @@ button {
   color: var(--paper);
 }
 
-/* Let's Talk */
+/* CTA liquide : le calque WebGL est contenu dans la pilule. */
 .nav__cta-wrap {
   margin-left: 18px;
 }
 
-.nav__cta {
+.nav__cta,
+.nav__sheet-cta {
+  --cta-accent: #CDF2FF;
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 64px;
-  padding: 0 30px;
+  justify-content: center;
+  flex-shrink: 0;
   border: 0;
   border-radius: 999px;
-  background: #fff;
+  background: var(--cta-accent);
   color: var(--ink);
+  font-family: var(--font-title);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -.02em;
   white-space: nowrap;
+  overflow: hidden;
   transition: background-color 300ms ease, scale 400ms var(--ease-out);
 }
 
-.nav__cta:hover {
-  background: var(--accent-soft);
+.nav__cta {
+  height: 64px;
+  padding: 0 30px;
 }
 
-.nav__cta:active,
-.nav__toggle:active {
-  scale: .97;
-}
-
-.nav__cta-icon {
-  position: relative;
-  display: block;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-}
-
-.nav__cta-icon svg {
+.nav__cta-wave {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  transition: translate 550ms var(--ease-out);
+  pointer-events: none;
+  transition: opacity 400ms ease;
 }
 
-.nav__cta-icon svg + svg {
-  translate: -120% 120%;
+.nav__cta-wave.is-fading {
+  opacity: 0;
 }
 
-.nav__cta:hover .nav__cta-icon svg:first-child {
-  translate: 120% -120%;
+.nav__cta-text {
+  position: relative;
+  z-index: 1;
+  transition: opacity 400ms ease;
 }
 
-.nav__cta:hover .nav__cta-icon svg + svg {
-  translate: 0 0;
+/* Pendant la vague, le libellé est dessiné par le shader (il change de couleur au passage du blanc). */
+.nav__cta.is-waving .nav__cta-text,
+.nav__sheet-cta.is-waving .nav__cta-text {
+  opacity: 0;
+  transition: none;
+}
+
+.nav__cta:active,
+.nav__sheet-cta:active,
+.nav__toggle:active {
+  scale: .97;
 }
 
 /* Bouton Menu / Close */
@@ -901,20 +905,20 @@ button {
   }
 
   .nav__sheet-cta {
-    justify-content: space-between;
     height: 60px;
     margin-top: 8px;
-    padding: 0 22px;
-    border-radius: 999px;
-    background: #fff;
-    color: var(--ink);
-    font-size: 20px;
+    justify-content: center;
     font-weight: 700;
+    text-align: center;
   }
+}
 
-  .nav__sheet-cta svg {
-    width: 20px;
-    height: 20px;
+/* Repli sans WebGL ou en mouvement réduit */
+@media (hover: hover) {
+  .nav__cta:not(.has-wave):hover,
+  .nav__sheet-cta:not(.has-wave):hover {
+    background: var(--cta-accent);
+    color: var(--ink);
   }
 }
 
@@ -1816,6 +1820,7 @@ fieldset.field + .field {
 }
 
 .footer::before {
+  display: none;
   content: "";
   position: absolute;
   z-index: 1;

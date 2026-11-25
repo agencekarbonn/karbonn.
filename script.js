@@ -395,3 +395,7 @@ import("./liquid-indicator.js")
     moveIndicator(linksGroup.querySelector(".nav__link:hover") ?? undefined, false);
   })
   .catch(() => {});
+
+import("./cta-wave.js")
+  .then(({ initCtaWave }) => initCtaWave([...nav.querySelectorAll(".nav__cta, .nav__sheet-cta")]))
+  .catch(() => {});

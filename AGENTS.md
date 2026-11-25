@@ -20,6 +20,7 @@ Site statique (HTML/CSS/JS sans framework) + fonction Appwrite pour la connexion
 - Les listes de valeurs de `functions/brief-parser/src/main.js` (`ENUMS`) doivent rester identiques à celles du moteur (un test le vérifie).
 - La fin du parcours ouvre la modale de devis préremplie via `openQuoteWith()` (quote.js).
 - Navigation entre pages : attribut `data-href` sur les liens de la nav + `data-page` sur `<body>`.
+- CTA « Discutons » : pilule rouge dans la navigation, vague blanche au survol dans `cta-wave.js` (shader Three.js, amplitude liée à la vitesse du pointeur, un rendu seulement pendant l'effet). Repli CSS si WebGL indisponible ou mouvement réduit.
 
 ## Connexion (Appwrite + Mailgun)
 
